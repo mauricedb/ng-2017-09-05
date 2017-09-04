@@ -3,9 +3,12 @@ function log(param: string) {
     const fn = target[propertyKey];
     target[propertyKey] = function(...args: any[]) {
       console.time(propertyKey);
-      fn(...args);
+      var result = fn(...args);
       console.timeEnd(propertyKey);
+      return result;
     };
+
+    return target;
   };
 }
 
