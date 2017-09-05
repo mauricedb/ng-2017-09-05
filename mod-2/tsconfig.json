@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+    "target": "es5",
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true
+},
+    "files": [
+        "demo.ts",
+        "lib.ts",
+        "calculator.ts"
+    ]
+}

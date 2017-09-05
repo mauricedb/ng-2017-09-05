@@ -1,0 +1,13 @@
+<p>
+  movie works!
+</p>
+
+<app-director>Dit is een test</app-director>
+
+<div *ngIf="movieTitle">
+  The titel 1 is: {{ movieTitle}}
+</div>
+<div [hidden]="!movieTitle">
+  The titel 2 is: {{ movieTitle}}
+</div>
+<input type="text" [(ngModel)]="movieTitle">
