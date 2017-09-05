@@ -1,0 +1,19 @@
+<p>
+  demo works!
+</p>
+
+<app-person [person]="person" (onShowMe)="showMe($event)">
+
+<ul>
+  <li>Een</li>
+  <li>Twee</li>
+</ul>
+
+</app-person>
+
+
+<hr>
+<app-person-editor [(firstName)]="person.firstName"></app-person-editor>
+
+
+<!-- <iframe src="http://localhost:4200/" frameborder="0"></iframe> -->

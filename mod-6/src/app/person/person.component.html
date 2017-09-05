@@ -1,0 +1,12 @@
+<div class="pa">
+
+  <ng-content></ng-content>
+
+  {{person.firstName}}
+  <br>
+  <input type="text" [(ngModel)]="person.firstName" class="ch">
+
+  <button (click)="showMe()">Show me</button>
+</div>
+
+<button (click)="update()">Update</button>
