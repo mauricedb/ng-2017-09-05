@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./directors.component.css']
 })
 export class DirectorsComponent implements OnInit {
-
+  director = "Quentin Tarantino"
+  
   constructor() { }
 
   ngOnInit() {

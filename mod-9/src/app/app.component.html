@@ -3,7 +3,18 @@
   <h1>
     Welcome to {{title}}!
   </h1>
-</div>
 
-<app-movies></app-movies>
-<app-directors></app-directors>
+<nav>
+  <a [routerLink]="['/kill-bill/1']">Kill bill 1</a>
+  <a [routerLink]="['/kill-bill/2']">Kill bill 2</a>
+  <a [routerLink]="'/director'">Quentin</a>
+  
+</nav>
+
+  <router-outlet ></router-outlet>
+
+
+  <footer>
+    Bla
+  </footer>
+</div>

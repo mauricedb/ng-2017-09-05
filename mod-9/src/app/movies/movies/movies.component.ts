@@ -1,3 +1,5 @@
+import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesComponent implements OnInit {
 
-  constructor() { }
+  versie: ""
+  title = "Kill Bill"
+
+  constructor(private activatedRoute : ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(p => {
+
+      this.versie = p.versie
+    })
   }
 
 }
