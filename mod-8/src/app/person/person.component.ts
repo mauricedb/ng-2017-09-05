@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-person',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent implements OnInit {
+form;
 
+@ViewChild('firstName') firstName: NgModel;
+
+  errorText = '';
   person = {
     firstName: 'Maurice',
     lastName: 'de Beijer'
@@ -14,10 +19,17 @@ export class PersonComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.firstName.valueChanges.subscribe(v => {
+      console.log(v)
+      if (!v) {
+        this.errorText = 'Please enter name'
+        // this.firstName.errors = { required : {}}
+      }
+    })
   }
 
-  save() {
-    console.log('Saving', this.person)
+  save(form) {
+    console.log('Saving', this.person, form, this.firstName)
   }
 
 }

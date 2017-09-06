@@ -1,11 +1,21 @@
-<div>
-  <label>Firstname:</label>
-  <input type="text" [(ngModel)]="person.firstName">
-</div>
-<div>
-  <label>Lastname:</label>
-  <input type="text" [(ngModel)]="person.lastName">
-</div>
-<div>
-  <button (click)="save()">Save</button>
-</div>
+<form novalidate #form="ngForm">
+  <div>
+    <label>Firstname:</label>
+    <input type="text" name="firstName" #firstName="ngModel" [(ngModel)]="person.firstName" minlength="3" required>
+    <div *ngIf="form.dirty && firstName.errors && firstName.errors.required">
+      Please enter a first name
+    </div>
+    <div *ngIf="form.dirty && firstName.errors && firstName.errors.minlength">
+      Please enter a longer first name
+    </div>
+    {{ firstName.errors | json}}
+  </div>
+  <div>
+    <label>Lastname:</label>
+    <input type="text" name="lastName" [(ngModel)]="person.lastName" minlength="3">
+  </div>
+  <div>
+    <button [disabled]="form.invalid || form.pristine" (click)="save(form)">Save</button>
+    <button [disabled]="!!errorText" (click)="save(form)">Save</button>
+  </div>
+</form>
